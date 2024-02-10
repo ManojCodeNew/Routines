@@ -8,7 +8,7 @@ function App() {
     <div>
       <Navbar/>
       <Home/>
-      <SetAlarm/>cxz
+      <SetAlarm/>
     </div>
   );
 }
