@@ -1,0 +1,33 @@
+.navbar-container{
+    font-weight: bold;
+}
+.navbar-container {
+    border-radius: 10%;
+    
+    background-color: rgb(255, 255, 255);
+    border: 0px solid rgb(170, 160, 160);
+    margin-top: 3%;
+    margin-left: 90%;
+    cursor: pointer;
+}
+.navbar-container div{
+    margin-right: 20%;
+    color: black;
+    border: 1px solid gray;
+    background-color: rgba(255, 255, 255, 0.556);
+    padding: 6%;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    /* Gradient color  */
+    font-weight: bolder;
+    background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;  /*Hide text actual color*/
+
+}
+.navbar-container div:hover {
+    background-color:#c1c1c1;
+    box-shadow:20px 20px 60px #00000041,inset -20px -20px 60px #ffffff40;
+    text-align: end;
+}
