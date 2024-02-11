@@ -12,7 +12,6 @@ function ExampleComponent() {
 
     let hour = useRef();
     let min = useRef();
-    console.log(parseInt(hour));
     const setAlarm = () => {
         // Check alarm Active
         if (alarm_active.active === false) {
