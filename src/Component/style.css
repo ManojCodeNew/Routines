@@ -2,7 +2,7 @@
     color: #1d4ed8;
     padding-left: 3%;
 }
-.navbar-container {
+.New-button {
     border-radius: 10%;
     background-color: rgb(255, 255, 255);
     border: 0px solid rgb(170, 160, 160);
@@ -10,7 +10,7 @@
     margin-left: 90%;
     cursor: pointer;
 }
-.navbar-container div{
+.New-button div{
     margin-right: 20%;
     color: black;
     border: 1px solid gray;
@@ -27,7 +27,7 @@
     color: transparent;  /*Hide text actual color*/
 
 }
-.navbar-container div:hover {
+.New-button div:hover {
     background-color:#c1c1c1;
     box-shadow:20px 20px 60px #00000041,inset -20px -20px 60px #ffffff40;
     text-align: end;

@@ -9,16 +9,21 @@ function ExampleComponent() {
         alarm_min: 0,
         final_time: 0
     })
-    let Hour = document.getElementById('Hour').value;
-    let Min = document.getElementById('Min').value;
-    const setAlarm = () => {
+    
+    const Alarm_time = () => {
             setalarm({
-                alarm_hour: Hour,
-                alarm_min: Min,
                 final_time: alarm.alarm_hour + ":" + alarm.alarm_min
             })
+    }
 
+    const setHour=(e)=>{
+        setalarm({...alarm,alarm_hour : e.target.value})
+        console.log("Hour",alarm.alarm_hour);
+    }
 
+    const setMin=(event)=>{
+        setalarm({...alarm,alarm_min : event.target.value})
+        console.log("Min",alarm.alarm_min);
 
     }
 
@@ -42,11 +47,11 @@ function ExampleComponent() {
         <div>
             <p>Current Time: {count}</p>
             <div >
-                <input id="Hour" type='number' ></input>
+                <input id="Hour" type='number' value={alarm.alarm_hour} onChange={setHour} ></input>
                 :
-                <input id='Min' type='number'></input>
+                <input id='Min' type='number' value={alarm.alarm_min} onChange={setMin}></input>
             </div>
-            <button onClick={setAlarm}>Ok</button>
+            <button onClick={Alarm_time}>Ok</button>
             <h1>{alarm.final_time}</h1>
         </div>
     );
