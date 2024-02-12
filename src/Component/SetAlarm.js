@@ -1,27 +1,30 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function ExampleComponent() {
     const [count, setCount] = useState();
     const [data, setdata] = useState("22:17")
-    const [alarm_active, setAlarm_active] = useState({
+    const [alarm, setalarm] = useState({
         active: false,
         alarm_hour: 0,
-        alarm_min: 0
+        alarm_min: 0,
+        final_time: 0
     })
-    const [Alarm, setAlarm_time] = useState(0)
-
-    let hour = useRef();
-    let min = useRef();
+    let Hour = document.getElementById('Hour').value;
+    let Min = document.getElementById('Min').value;
     const setAlarm = () => {
-        // Check alarm Active
-        if (alarm_active.active === false) {
-            setAlarm_active({ active: true })
-        }
-        else {
-            setAlarm_active({ active: false })
-        }
-        
+            setalarm({
+                alarm_hour: Hour,
+                alarm_min: Min,
+                final_time: alarm.alarm_hour + ":" + alarm.alarm_min
+            })
+
+
+
     }
+
+    console.log("final time outside", alarm.final_time);
+    // const [Alarm, setAlarm_time] = useState(0)
+
     useEffect(() => {
         setInterval(() => {
             let fetchtime = new Date();
@@ -29,17 +32,22 @@ function ExampleComponent() {
             setCount(time)
         }, 1000)
         console.log('I am useEffect', count);
-        if (count === data) {
-            alert("Alert!!!");
+        console.log("Final_time", alarm.final_time);
+        if (count === alarm.final_time) {
+            alert("Alarm!!!");
         }
-        
-    }, [count, data]);
+
+    }, [count, alarm.final_time]);
     return (
         <div>
             <p>Current Time: {count}</p>
-            <button onClick={setAlarm}>Set Alarm</button>
-            {alarm_active.active === true ?
-                <div><input id="Hour" ref={hour} type='number'></input>  :  <input id='Min' ref={min} type='number'></input></div> : "Sorry Not available"}
+            <div >
+                <input id="Hour" type='number' ></input>
+                :
+                <input id='Min' type='number'></input>
+            </div>
+            <button onClick={setAlarm}>Ok</button>
+            <h1>{alarm.final_time}</h1>
         </div>
     );
 }
