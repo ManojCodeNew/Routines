@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
+import { NavLink } from 'react-router-dom'}
 import './style.css'
 export default function Home() {
     const [Active, setActive] = useState(false)
@@ -21,7 +22,9 @@ useEffect(()=>{
     return (
         <div className='Home'>
             <div className='Routines'>
+                <NavLink to='/SetAlaram'>
                 <h2 className='WT'>Wake up Time <span > &gt;  </span></h2>
+                </NavLink>
                 <h2 className='CT'>College Time <span > &gt;  </span> </h2>
                 <h2 className='LT'>Lunch Time   <span > &gt;  </span> </h2>
                 <h2 className='RT'>Relax Time   <span > &gt;  </span> </h2>
