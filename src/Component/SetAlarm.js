@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 
 function ExampleComponent() {
     const [count, setCount] = useState();
-    const [data, setdata] = useState("22:17")
     const [alarm, setalarm] = useState({
         active: false,
         alarm_hour: 0,
@@ -12,6 +11,7 @@ function ExampleComponent() {
     
     const Alarm_time = () => {
             setalarm({
+                ...alarm,
                 final_time: alarm.alarm_hour + ":" + alarm.alarm_min
             })
     }
@@ -28,7 +28,6 @@ function ExampleComponent() {
     }
 
     console.log("final time outside", alarm.final_time);
-    // const [Alarm, setAlarm_time] = useState(0)
 
     useEffect(() => {
         setInterval(() => {

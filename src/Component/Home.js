@@ -29,14 +29,21 @@ useEffect(()=>{
                 </div>
             </div>
             <div className='Routines'>
-                <NavLink to="/SetAlarm">
+                <NavLink to="/SetAlarm" className="navlink">
                 <h2 className='WT'>Wake up Time <span > &gt;  </span></h2>
                 </NavLink>
+                <NavLink to="/SetAlarm" className="navlink">
                 <h2 className='CT'>College Time <span > &gt;  </span> </h2>
+                </NavLink>
+                <NavLink to="/SetAlarm" className="navlink">
                 <h2 className='LT'>Lunch Time   <span > &gt;  </span> </h2>
+                </NavLink>
+                <NavLink to="/SetAlarm" className="navlink">
                 <h2 className='RT'>Relax Time   <span > &gt;  </span> </h2>
+                </NavLink>
+                <NavLink to="/SetAlarm" className="navlink">
                 <h2 className='BT'>Bed Time     <span > &gt;  </span> </h2>
-                
+                </NavLink>
             </div>
             {/* <button onClick={Time}>Set Alaram</button> */}
         </div>

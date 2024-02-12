@@ -1,7 +1,8 @@
-.navbar h2{
+.navbar h2 {
     color: #1d4ed8;
     padding-left: 3%;
 }
+
 .New-button {
     border-radius: 10%;
     background-color: rgb(255, 255, 255);
@@ -10,7 +11,8 @@
     margin-left: 90%;
     cursor: pointer;
 }
-.New-button div{
+
+.New-button div {
     margin-right: 20%;
     color: black;
     border: 1px solid gray;
@@ -24,33 +26,46 @@
     background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
     -webkit-background-clip: text;
     background-clip: text;
-    color: transparent;  /*Hide text actual color*/
+    color: transparent;
+    /*Hide text actual color*/
 
 }
+
 .New-button div:hover {
-    background-color:#c1c1c1;
-    box-shadow:20px 20px 60px #00000041,inset -20px -20px 60px #ffffff40;
+    background-color: #c1c1c1;
+    box-shadow: 20px 20px 60px #00000041, inset -20px -20px 60px #ffffff40;
     text-align: end;
 }
 
 
 /* Home.js */
-.Home{
+.Home {
     padding: 3%;
 }
-.Home h2{
+
+.Home h2 {
     border: 1px;
     border-style: solid;
     border-color: #4361b6;
     padding: 3%;
     border-radius: 12px;
-color: rgb(23, 23, 25);
+    color: rgb(23, 23, 25);
 }
-.Home h2:hover{
+
+/* .Home h2:hover{
     background-color: #1d4ed8;
     color: white;
+} */
+.Home h2 span {
+    justify-content: left;
+    align-items: flex-end;
 }
-.Home h2 span{
-   justify-content: left;
-   align-items: flex-end;
+
+.navlink {
+    text-decoration: none;
+}
+
+.Routines .navlink h2:hover {
+    background-color: #1d4ed8;
+    color: white;
 }
