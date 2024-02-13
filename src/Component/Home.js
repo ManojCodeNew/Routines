@@ -4,9 +4,10 @@ import { NavLink } from 'react-router-dom';
 import SetAlarm from './SetAlarm.js';
 import './style.css'
 export default function Home() {
-    const [Active, setActive] = useState(false)
     const [time, settime] = useState("17:44")
 console.log(time);
+
+
 useEffect(()=>{
     const Time = () => {
         let fetchtime=new Date();
@@ -45,7 +46,6 @@ useEffect(()=>{
                 <h2 className='BT'>Bed Time     <span > &gt;  </span> </h2>
                 </NavLink>
             </div>
-            {/* <button onClick={Time}>Set Alaram</button> */}
         </div>
     )
 }

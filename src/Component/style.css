@@ -52,10 +52,6 @@
     color: rgb(23, 23, 25);
 }
 
-/* .Home h2:hover{
-    background-color: #1d4ed8;
-    color: white;
-} */
 .Home h2 span {
     justify-content: left;
     align-items: flex-end;
@@ -68,4 +64,14 @@
 .Routines .navlink h2:hover {
     background-color: #1d4ed8;
     color: white;
+}
+.add_alarm_heading{
+    padding-left: 2%;
+}
+.add_alarm_heading .add_alarm_data{
+    padding-left: 3%;
+}
+.add_alarm_data{
+    padding-left: 2%;
+    border: 1px solid rgb(114, 111, 111);
 }
