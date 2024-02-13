@@ -59,7 +59,6 @@ function ExampleComponent() {
                 <input id='Min' type='number' value={alarm.alarm_min} onChange={setMin}></input>
             </div>
             <button onClick={add_Alarm}>Ok</button>
-            <h1>{alarm.final_time}</h1>
         </div>
     );
 }
