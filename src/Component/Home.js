@@ -1,29 +1,19 @@
-import React, { useEffect } from 'react'
-import { useState } from 'react'
+import React from 'react'
 import { NavLink } from 'react-router-dom';
-import SetAlarm from './SetAlarm.js';
 import './style.css'
 export default function Home() {
-    const [time, settime] = useState("17:44")
-console.log(time);
-
-
-useEffect(()=>{
-    const Time = () => {
         let fetchtime=new Date();
         let get_hour=fetchtime.getHours();
         let get_min=fetchtime.getMinutes();
+        let CurrentDate=fetchtime.toDateString();
         let merge_hour_and_min=get_hour+":"+get_min;
-        if (merge_hour_and_min===time){
-            alert("alaram")
-        }
-    }
-    
-    Time();
-},[time])
+        let pm_am=get_hour >=12?'PM':'AM';
     return (
 
         <div className='Home'>
+                {CurrentDate}
+                <p>{merge_hour_and_min} {pm_am}</p>
+
             <div className='New-button'>
                 <div>
                     NEW

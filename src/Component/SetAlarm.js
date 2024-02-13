@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import Notification from './Notification';
+import audio1 from '../Component/Audios/Ringtone.mp3'
 
 function ExampleComponent() {
     const [count, setCount] = useState();
@@ -44,7 +46,10 @@ function ExampleComponent() {
         let Finded_alarm=Add_alarm_container[0].filter((item)=>item===count)
         console.log("Finded_alarm",Finded_alarm[0]);
         if (count === Finded_alarm[0]) {
-            alert("Alarm!!!");
+            new Notification('alert' , {body:"Your alaram is Going on"});
+            let alarm=new Audio(audio1)
+            alarm.play();
+            
         }
         
 
