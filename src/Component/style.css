@@ -74,4 +74,12 @@
 .add_alarm_data{
     padding-left: 2%;
     border: 1px solid rgb(114, 111, 111);
+    border-radius: 9px;
+}
+.add_alarm_data :hover{
+    border-color: aqua;
+    background-color: rgb(135, 204, 204);
+}
+.add_alarm_data :hover{
+    background-color: #1d4ed8;
 }

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 
 function ExampleComponent() {
     const [count, setCount] = useState();
-    // const [addAlarm,setaddalarm]=useState();
     const [alarm, setalarm] = useState({
         active: false,
         alarm_hour: 0,
@@ -18,7 +17,7 @@ function ExampleComponent() {
 
     }
     const Add_alarm_container = [alarm.final_time]
-    console.log("addAlarm", Add_alarm_container);
+
     const setHour = (e) => {
         setalarm({ ...alarm, alarm_hour: e.target.value })
         console.log("Hour", alarm.alarm_hour);
@@ -40,9 +39,14 @@ function ExampleComponent() {
         }, 1000)
         console.log('I am useEffect', count);
         console.log("Final_time", alarm.final_time);
-        if (count === alarm.final_time) {
+
+        // This is most important because it find which is next alarm
+        let Finded_alarm=Add_alarm_container[0].filter((item)=>item===count)
+        console.log("Finded_alarm",Finded_alarm[0]);
+        if (count === Finded_alarm[0]) {
             alert("Alarm!!!");
         }
+        
 
     }, [count, alarm.final_time]);
     return (
