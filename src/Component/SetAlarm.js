@@ -1,17 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import Notification from './Notification';
-import audio1 from '../Component/Audios/Ringtone.mp3'
+import React, { useState, useEffect, useContext } from 'react';
+import { Globaldata } from '../Context/Context';
 
-function ExampleComponent() {
+
+function SetAlarm(props) {
     const [count, setCount] = useState();
+    // const [alarm_time,setalarm_time]=useState();
     const [alarm, setalarm] = useState({
         active: false,
-        alarm_hour: 0,
+        alarm_hour: 1,
         alarm_min: 0,
         final_time: []
     })
+    let Globaldata_access=useContext(Globaldata);
 
-    const add_Alarm = async () => {
+    
+
+
+    const add_Alarm = () => {
         setalarm(prevState => ({
             ...alarm,
             final_time: [...prevState.final_time, alarm.alarm_hour + ":" + alarm.alarm_min]
@@ -22,35 +27,24 @@ function ExampleComponent() {
 
     const setHour = (e) => {
         setalarm({ ...alarm, alarm_hour: e.target.value })
-        console.log("Hour", alarm.alarm_hour);
     }
 
     const setMin = (event) => {
         setalarm({ ...alarm, alarm_min: event.target.value })
-        console.log("Min", alarm.alarm_min);
-
     }
 
     console.log("final time outside", alarm.final_time);
-
     useEffect(() => {
         setInterval(() => {
             let fetchtime = new Date();
             let time = fetchtime.getHours() + ":" + fetchtime.getMinutes();
             setCount(time)
         }, 1000)
-        console.log('I am useEffect', count);
-        console.log("Final_time", alarm.final_time);
 
         // This is most important because it find which is next alarm
         let Finded_alarm=Add_alarm_container[0].filter((item)=>item===count)
-        console.log("Finded_alarm",Finded_alarm[0]);
-        if (count === Finded_alarm[0]) {
-            new Notification('alert' , {body:"Your alaram is Going on"});
-            let alarm=new Audio(audio1)
-            alarm.play();
-            
-        }
+            Globaldata_access.setalarm_time(Finded_alarm[0])
+            Globaldata_access.setCurrent_time(count)
         
 
     }, [count, alarm.final_time]);
@@ -72,4 +66,4 @@ function ExampleComponent() {
     );
 }
 
-export default ExampleComponent;
+export default SetAlarm;
