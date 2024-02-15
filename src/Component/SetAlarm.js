@@ -4,7 +4,6 @@ import { Globaldata } from '../Context/Context';
 
 function SetAlarm(props) {
     const [count, setCount] = useState();
-    // const [alarm_time,setalarm_time]=useState();
     const [alarm, setalarm] = useState({
         active: false,
         alarm_hour: 1,
@@ -23,6 +22,7 @@ function SetAlarm(props) {
         }));
 
     }
+    // Saved Alarms
     const Add_alarm_container = [alarm.final_time]
 
     const setHour = (e) => {
@@ -45,7 +45,7 @@ function SetAlarm(props) {
         let Finded_alarm=Add_alarm_container[0].filter((item)=>item===count)
             Globaldata_access.setalarm_time(Finded_alarm[0])
             Globaldata_access.setCurrent_time(count)
-        
+            Globaldata_access.setsaved_Alarm(Add_alarm_container)
 
     }, [count, alarm.final_time]);
     return (
