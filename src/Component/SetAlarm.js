@@ -3,7 +3,7 @@ import { Globaldata } from '../Context/Context';
 
 
 function SetAlarm(props) {
-    const [count, setCount] = useState();
+    const [Time, setTime] = useState();
     const [alarm, setalarm] = useState({
         active: false,
         alarm_hour: 1,
@@ -24,7 +24,7 @@ function SetAlarm(props) {
     }
     // Saved Alarms
     const Add_alarm_container = [alarm.final_time]
-
+console.log("Saved Alarms",Add_alarm_container);
     const setHour = (e) => {
         setalarm({ ...alarm, alarm_hour: e.target.value })
     }
@@ -38,16 +38,17 @@ function SetAlarm(props) {
         setInterval(() => {
             let fetchtime = new Date();
             let time = fetchtime.getHours() + ":" + fetchtime.getMinutes();
-            setCount(time)
+            setTime(time)
         }, 1000)
+        
 
         // This is most important because it find which is next alarm
-        let Finded_alarm=Add_alarm_container[0].filter((item)=>item===count)
+        let Finded_alarm=Add_alarm_container[0].filter((item)=>item===Time)
             Globaldata_access.setalarm_time(Finded_alarm[0])
-            Globaldata_access.setCurrent_time(count)
-            Globaldata_access.setsaved_Alarm(Add_alarm_container)
-
-    }, [count, alarm.final_time]);
+        //     Globaldata_access.setCurrent_time(count)
+        //     Globaldata_access.setsaved_Alarm(Add_alarm_container)
+// eslint-disable-next-line
+    }, [ alarm.final_time,Add_alarm_container[0],Globaldata_access]);
     return (
         <div>
             <div><h1 className='add_alarm_heading'>Alarm</h1><hr />
@@ -55,7 +56,7 @@ function SetAlarm(props) {
             {Add_alarm_container[0].map((item)=><h1 className='add_alarm_data'>{item}</h1>)}
             </div>
             <hr />
-            <p>Current Time: {count}</p>
+            <p>Current Time: {Time}</p>
             <div >
                 <input id="Hour" type='number' value={alarm.alarm_hour} onChange={setHour} ></input>
                 :
