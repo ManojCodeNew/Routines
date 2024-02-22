@@ -8,19 +8,19 @@ export default function Home() {
     const handle_submit = () => {
         let hour_input = document.getElementById('set_hour');
         let min_input = document.getElementById('set_min');
-        setvalue(prevalue=>({
+        setvalue(prevalue => ({
             ...value,
-            final_time:[...prevalue.final_time,hour_input.value+" : "+min_input.value]
+            final_time: [...prevalue.final_time, hour_input.value + " : " + min_input.value]
 
         })
         )
     }
-console.log("ft",value.final_time);
+    console.log("ft", value.final_time);
 
 
-    
+
     const [time, setTime] = useState()
-let Add_alarm_container=[]
+    let Add_alarm_container = []
     useEffect(() => {
         setInterval(() => {
             let fetchtime = new Date();
@@ -32,10 +32,15 @@ let Add_alarm_container=[]
             setTime(merge_hour_and_min + " " + pm_am)
         }, 1000)
 
-Add_alarm_container.push(value.final_time)
-    }, [time,value.final_time])
+        Add_alarm_container.push(value.final_time)
+        let finded_alarm = Add_alarm_container[0].filter((item) => item === time);
+        console.log("value", Add_alarm_container);
+        if (Add_alarm_container[0][1] === time) {
+            alert("alarm")
+        }
+    }, [time, value.final_time,Add_alarm_container])
 
-console.log(Add_alarm_container);
+    console.log(Add_alarm_container);
     return (
         <>
             <div className='Home'>
@@ -65,12 +70,12 @@ console.log(Add_alarm_container);
                     </NavLink>
                 </div>
             </div>
-        {value.final_time.forEach(item=>{
 
-            <h3 >{item}</h3>
-        })}
 
-            
+            <h3 >{value.final_time}</h3>
+
+
+
             <div className='set_alarm_container'>
                 <input type="number" id='set_hour' />
                 <input type="number" id='set_min' />
