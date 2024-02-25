@@ -83,3 +83,19 @@
 .add_alarm_data :hover{
     background-color: #5171c8;
 }
+#Alarm_container{
+    background-color: rgb(252, 251, 251);
+    border: 2px solid rgb(76, 71, 71);
+    border-radius: 15px;
+    margin: 1%;
+    margin-right: 60%;
+}
+#Alarm_container h1{
+    padding-left: 2%;
+}
+#Alarm_container p{
+    padding-bottom:0%;
+    padding-top: 1%;
+    padding-left: 2%;
+}
+
